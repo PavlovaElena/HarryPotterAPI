@@ -56,15 +56,47 @@
 		DBFB1982281274500041A167 /* HarryPotterAPI */ = {
 			isa = PBXGroup;
 			children = (
-				DBFB1983281274500041A167 /* AppDelegate.swift */,
-				DBFB1985281274500041A167 /* SceneDelegate.swift */,
-				DBFB1987281274500041A167 /* ViewController.swift */,
-				DBFB1989281274500041A167 /* Main.storyboard */,
-				DBFB198C281274530041A167 /* Assets.xcassets */,
-				DBFB198E281274530041A167 /* LaunchScreen.storyboard */,
-				DBFB1991281274530041A167 /* Info.plist */,
+				DBFB1998281274A60041A167 /* App */,
+				DBFB1999281274AF0041A167 /* ViewControllers */,
+				DBFB1997281274840041A167 /* Storyboards */,
+				DBFB199A281274C20041A167 /* Resourses */,
 			);
 			path = HarryPotterAPI;
+			sourceTree = "<group>";
+		};
+		DBFB1997281274840041A167 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DBFB1989281274500041A167 /* Main.storyboard */,
+				DBFB198E281274530041A167 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DBFB1998281274A60041A167 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DBFB1983281274500041A167 /* AppDelegate.swift */,
+				DBFB1985281274500041A167 /* SceneDelegate.swift */,
+				DBFB1991281274530041A167 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DBFB1999281274AF0041A167 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DBFB1987281274500041A167 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DBFB199A281274C20041A167 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				DBFB198C281274530041A167 /* Assets.xcassets */,
+			);
+			path = Resourses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,7 +336,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -332,7 +364,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
