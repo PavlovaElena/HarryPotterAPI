@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DBB2A8B7281285070027305C /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A8B6281285070027305C /* CharacterListViewController.swift */; };
+		DBC6AFED28128785003136C9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6AFEC28128784003136C9 /* DetailsViewController.swift */; };
+		DBC6AFEF2812CCBD003136C9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6AFEE2812CCBD003136C9 /* Character.swift */; };
+		DBC6AFF22812D516003136C9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6AFF12812D516003136C9 /* NetworkManager.swift */; };
 		DBFB1984281274500041A167 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB1983281274500041A167 /* AppDelegate.swift */; };
 		DBFB1986281274500041A167 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB1985281274500041A167 /* SceneDelegate.swift */; };
-		DBFB1988281274500041A167 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFB1987281274500041A167 /* ViewController.swift */; };
 		DBFB198B281274500041A167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBFB1989281274500041A167 /* Main.storyboard */; };
 		DBFB198D281274530041A167 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBFB198C281274530041A167 /* Assets.xcassets */; };
 		DBFB1990281274530041A167 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBFB198E281274530041A167 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DBB2A8B6281285070027305C /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
+		DBC6AFEC28128784003136C9 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		DBC6AFEE2812CCBD003136C9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		DBC6AFF12812D516003136C9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DBFB1980281274500041A167 /* HarryPotterAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarryPotterAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFB1983281274500041A167 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBFB1985281274500041A167 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DBFB1987281274500041A167 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DBFB198A281274500041A167 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBFB198C281274530041A167 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBFB198F281274530041A167 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +43,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DBC6AFF02812CCC2003136C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DBC6AFEE2812CCBD003136C9 /* Character.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DBC6AFF32812D54A003136C9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DBC6AFF12812D516003136C9 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		DBFB1977281274500041A167 = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +78,11 @@
 		DBFB1982281274500041A167 /* HarryPotterAPI */ = {
 			isa = PBXGroup;
 			children = (
-				DBFB1998281274A60041A167 /* App */,
 				DBFB1999281274AF0041A167 /* ViewControllers */,
 				DBFB1997281274840041A167 /* Storyboards */,
+				DBC6AFF32812D54A003136C9 /* Managers */,
+				DBC6AFF02812CCC2003136C9 /* Models */,
+				DBFB1998281274A60041A167 /* App */,
 				DBFB199A281274C20041A167 /* Resourses */,
 			);
 			path = HarryPotterAPI;
@@ -86,7 +110,8 @@
 		DBFB1999281274AF0041A167 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DBFB1987281274500041A167 /* ViewController.swift */,
+				DBB2A8B6281285070027305C /* CharacterListViewController.swift */,
+				DBC6AFEC28128784003136C9 /* DetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -170,9 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBFB1988281274500041A167 /* ViewController.swift in Sources */,
+				DBB2A8B7281285070027305C /* CharacterListViewController.swift in Sources */,
 				DBFB1984281274500041A167 /* AppDelegate.swift in Sources */,
+				DBC6AFEF2812CCBD003136C9 /* Character.swift in Sources */,
 				DBFB1986281274500041A167 /* SceneDelegate.swift in Sources */,
+				DBC6AFED28128785003136C9 /* DetailsViewController.swift in Sources */,
+				DBC6AFF22812D516003136C9 /* NetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +349,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N537R39CDZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HarryPotterAPI/Info.plist;
+				INFOPLIST_FILE = HarryPotterAPI/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -349,7 +377,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N537R39CDZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HarryPotterAPI/Info.plist;
+				INFOPLIST_FILE = HarryPotterAPI/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
