@@ -7,6 +7,23 @@
 
 import UIKit
 
+enum Mode: Int {
+    case device
+    case light
+    case dark
+    
+    func getUserInterfaceStyle() -> UIUserInterfaceStyle {
+        switch self {
+        case .device:
+            return .unspecified
+        case .light:
+            return .light
+        case .dark:
+            return .dark
+        }
+    }
+}
+
 class CharacterListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -16,8 +33,10 @@ class CharacterListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 100
+        tableView.rowHeight = 85
         tableView.backgroundColor = .systemGray6
+        
+        modeToggle.selectedSegmentIndex = SettingsStorageManager.shared.mode.rawValue
         
         NetworkManager.shared.fetch(from: link) { result in
             switch result {
@@ -34,6 +53,11 @@ class CharacterListViewController: UIViewController {
         guard let detailsVC = segue.destination as? DetailsViewController else { return }
         detailsVC.character = sender as? Character
     }
+    
+    @IBAction func changeMode() {
+        SettingsStorageManager.shared.mode = Mode(rawValue: modeToggle.selectedSegmentIndex) ?? .device
+        view.window?.overrideUserInterfaceStyle = SettingsStorageManager.shared.mode.getUserInterfaceStyle()
+    }
 }
 
 extension CharacterListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -42,23 +66,10 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CharacterTableViewCell else { return UITableViewCell() }
         let character = charactersList[indexPath.row]
-        
-        NetworkManager.shared.fetchImage(from: character.image) { result in
-            switch result {
-            case .success(let imageData):
-                content.image = UIImage(data: imageData)
-                cell.contentConfiguration = content
-            case .failure(_):
-                content.image = UIImage(named: "noImage")
-            }
-        }
-        
-        content.text = character.name
-        content.secondaryText = character.house
-        cell.contentConfiguration = content
+        cell.configure(with: character)
+
         return cell
     }
     

@@ -9,7 +9,7 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: CharacterImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var houseLabel: UILabel!
@@ -31,15 +31,7 @@ class DetailsViewController: UIViewController {
     }
     
     private func fillScreen() {
-        
-        NetworkManager.shared.fetchImage(from: character.image) { [weak self] result in
-            switch result {
-            case .success(let imageData):
-                self?.imageView.image = UIImage(data: imageData)
-            case .failure(_):
-                self?.imageView.image = UIImage(named: "noImage")
-            }
-        }
+        imageView.fetchImage(from: character.image)
         
         nameLabel.text = character.name
         
