@@ -20,9 +20,9 @@ class CharacterImageView: UIImageView {
             return
         }
         
-        NetworkManager.shared.fetchImage(from: url) { data, response in
-            self.image = UIImage(data: data)
-            self.saveDataToCache(with: data, and: response)
+        NetworkManager.shared.fetchImage(from: url) { [weak self] data, response in
+            self?.image = UIImage(data: data)
+            self?.saveDataToCache(with: data, and: response)
         }
     }
     

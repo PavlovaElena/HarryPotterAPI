@@ -38,11 +38,11 @@ class CharacterListViewController: UIViewController {
         
         modeToggle.selectedSegmentIndex = SettingsStorageManager.shared.mode.rawValue
         
-        NetworkManager.shared.fetch(from: link) { result in
+        NetworkManager.shared.fetch(from: link) { [weak self] result in
             switch result {
             case .success(let characters):
-                self.charactersList.append(contentsOf: characters)
-                self.tableView.reloadData()
+                self?.charactersList.append(contentsOf: characters)
+                self?.tableView.reloadData()
             case .failure(let error):
                 print(error)
             }
@@ -69,11 +69,11 @@ extension CharacterListViewController: UITableViewDataSource, UITableViewDelegat
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CharacterTableViewCell else { return UITableViewCell() }
         let character = charactersList[indexPath.row]
         cell.configure(with: character)
-
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let character = charactersList[indexPath.row]
         performSegue(withIdentifier: "showDetails", sender: character)
     }
