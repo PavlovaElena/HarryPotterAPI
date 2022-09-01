@@ -1,5 +1,5 @@
 //
-//  DetailsViewController.swift
+//  CharacterDetailsViewController.swift
 //  HarryPotterAPI
 //
 //  Created by Елена Павлова on 22.04.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class CharacterDetailsViewController: UIViewController {
 
     @IBOutlet weak var imageView: CharacterImageView!
     
@@ -19,39 +19,26 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     var character: Character!
+    var viewModel: CharacterDetailsViewModelProtocol! {
+        didSet {
+            nameLabel.text = viewModel.characterName
+            dateOfBirthLabel.text = viewModel.dateOfBirth
+            houseLabel.text = viewModel.houseName
+            actorLabel.text = viewModel.actor
+            imageView.fetchImage(from: viewModel.characterImage)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = CharacterDetailsViewModel(character: character)
+        
         navigationBar.topItem?.title = "\(character.name)"
-        fillScreen()
+        houseLabel.textColor = setHouseColor(viewModel.houseName)
     }
 
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true)
-    }
-    
-    private func fillScreen() {
-        imageView.fetchImage(from: character.image)
-        
-        nameLabel.text = character.name
-        
-        dateOfBirthLabel.text = character.dateOfBirth != ""
-        ? "was born \(character.dateOfBirth)"
-        : "Date of birth unknown"
-        
-        switch character.house {
-        case "" where character.wizard == false:
-            houseLabel.text = "No wizard"
-        case "" where character.wizard == true:
-            houseLabel.text = "Hogwarts house unknown"
-        default:
-            houseLabel.text = "\(character.house)"
-            houseLabel.textColor = setHouseColor(character.house)
-        }
-        
-        actorLabel.text = character.actor != ""
-        ? "played by \(character.actor)"
-        : "No information about the actor"
     }
     
     private func setHouseColor (_ house: String) -> UIColor {
@@ -62,8 +49,10 @@ class DetailsViewController: UIViewController {
             return .systemYellow
         case "Ravenclaw":
             return .systemBlue
-        default:
+        case "Slytherin":
             return .systemGreen
+        default:
+            return .black
         }
     }
 }
