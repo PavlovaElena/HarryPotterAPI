@@ -13,10 +13,11 @@ class CharacterTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var houseLabel: UILabel!
     
-    func configure(with character: Character) {
-        
-        photoImageView.fetchImage(from: character.image)
-        nameLabel.text = character.name
-        houseLabel.text = character.house
+    var viewModel: CharacterCellViewModelProtocol! {
+        didSet {
+            photoImageView.fetchImage(from: viewModel.characterImage)
+            nameLabel.text = viewModel.characterName
+            houseLabel.text = viewModel.houseName
+        }
     }
 }

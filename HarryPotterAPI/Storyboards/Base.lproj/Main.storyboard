@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="1605.7971014492755" y="188.83928571428569"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Character Details View Controller-->
         <scene sceneID="CE0-yQ-Tzt">
             <objects>
-                <viewController id="TCl-L7-H9N" customClass="DetailsViewController" customModule="HarryPotterAPI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TCl-L7-H9N" customClass="CharacterDetailsViewController" customModule="HarryPotterAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cQA-Oi-dwJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

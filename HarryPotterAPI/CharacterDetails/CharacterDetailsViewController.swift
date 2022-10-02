@@ -18,27 +18,26 @@ class CharacterDetailsViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    var character: Character!
-    var viewModel: CharacterDetailsViewModelProtocol! {
-        didSet {
-            nameLabel.text = viewModel.characterName
-            dateOfBirthLabel.text = viewModel.dateOfBirth
-            houseLabel.text = viewModel.houseName
-            actorLabel.text = viewModel.actor
-            imageView.fetchImage(from: viewModel.characterImage)
-        }
-    }
+    var viewModel: CharacterDetailsViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = CharacterDetailsViewModel(character: character)
-        
-        navigationBar.topItem?.title = "\(character.name)"
-        houseLabel.textColor = setHouseColor(viewModel.houseName)
+        setupUI()
     }
 
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true)
+    }
+    
+    private func setupUI() {
+        nameLabel.text = viewModel.characterName
+        dateOfBirthLabel.text = viewModel.dateOfBirth
+        houseLabel.text = viewModel.houseName
+        actorLabel.text = viewModel.actor
+        imageView.fetchImage(from: viewModel.characterImage)
+        
+        navigationBar.topItem?.title = "\(viewModel.characterName)"
+        houseLabel.textColor = setHouseColor(viewModel.houseName)
     }
     
     private func setHouseColor (_ house: String) -> UIColor {
